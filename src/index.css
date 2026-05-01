@@ -1,0 +1,101 @@
+/* Go Safe — Design System (dark-first, industrial safety) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 0 0% 0%;
+    --foreground: 210 40% 98%;          /* #F8FAFC */
+
+    --card: 0 0% 7%;
+    --card-foreground: 210 40% 98%;
+    --card-border: 217 19% 27%;         /* hover #334155 */
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary = green safety */
+    --primary: 100 80% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 100 80% 55%;
+
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;    /* #94A3B8 */
+
+    --accent: 217 33% 22%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Status semantic */
+    --warning: 48 96% 53%;              /* #FACC15 */
+    --warning-foreground: 222 47% 11%;
+    --danger: 0 84% 60%;                /* #EF4444 */
+    --danger-foreground: 0 0% 100%;
+    --success: 142 71% 45%;             /* #22C55E */
+    --success-foreground: 0 0% 100%;
+    --info: 217 91% 60%;                /* #3B82F6 */
+    --info-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 19% 27%;
+    --input: 217 33% 22%;
+    --ring: 100 80% 45%;
+
+    --radius: 0.75rem;                  /* 12px cards */
+    --radius-sm: 0.5rem;                /* 8px buttons/inputs */
+
+    /* Role colors */
+    --role-conductor: 100 80% 45%;
+    --role-bodega: 217 91% 60%;
+    --role-supervisor: 270 80% 60%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 100 80% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 19% 22%;
+    --sidebar-ring: 100 80% 45%;
+
+    --transition: 150ms ease;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+
+  /* Touch targets */
+  button, [role="button"] { touch-action: manipulation; }
+}
+
+@layer utilities {
+  .safe-pb { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-pt { padding-top: env(safe-area-inset-top); }
+  .text-balance { text-wrap: balance; }
+
+  .fade-in { animation: fadeIn 150ms ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;} }
+}
